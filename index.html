@@ -9,9 +9,17 @@
   </head>
   <body>
     <!-- header -->
+    <h2>Weather Application</h2>
     <!-- search input box (event on mag glass) -->
+    <div id="searchBtn">
+      <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search" />
+        <button type="submit">Search<i class="fa fa-search"></i></button>
+      </form>
+    </div>
     <!-- list of previous searches (event on history click) -->
     <!-- current city weather stats -->
+    <div id="weatherDiv"></div>
     <!-- 5 day weather outlook -->
     <script src="app.js"></script>
   </body>

@@ -2,7 +2,7 @@ $(document).ready(function() {
   // database
   // raw weather object from API
   var cityWeather =
-    "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22";
+    "https://openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22";
 
   // variables
   // parsed weather data
