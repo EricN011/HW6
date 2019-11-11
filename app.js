@@ -22,7 +22,7 @@ $(document).ready(function() {
       url:
         "https://openweathermap.org/data/2.5/weather?q=" +
         citySearch +
-        "&appid=b6907d289e10d714a6e88b30761fae22",
+        "&units=imperial&appid=b6907d289e10d714a6e88b30761fae22",
       method: "GET"
     }).then(function(response) {
       currFore.empty();
@@ -55,11 +55,12 @@ $(document).ready(function() {
     });
   }
 
+  // Five day forecast function
   function getFiveDay(citySearch) {
     $.ajax({
       type: "GET",
       URL:
-        "https://openweathermap.org/data/2.5/weather?q=" +
+        "https://api.openweathermap.org/data/2.5/forecast?q=" +
         citySearch +
         "&appid=b6907d289e10d714a6e88b30761fae22"
     }).then(function(response) {
