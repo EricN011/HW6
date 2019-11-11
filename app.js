@@ -15,6 +15,16 @@ $(document).ready(function() {
 
     getWeather(citySearch);
   });
+  history.on("click", "li", function() {
+    getWeather($(this).text());
+  });
+
+  function newDiv(text) {
+    var cityList = $("<ul>")
+      .addClass("list-group-item list-group-item-action")
+      .text(text);
+    history.append(cityList);
+  }
 
   // get weather function
   function getWeather(citySearch) {
@@ -25,6 +35,11 @@ $(document).ready(function() {
         "&units=imperial&appid=b6907d289e10d714a6e88b30761fae22",
       method: "GET"
     }).then(function(response) {
+      if (history.index(citySearch) === -1) {
+        history.push(citySearch);
+        window.localStorage.setItem("history", JSON.stringify(history));
+        newDiv(citySearch);
+      }
       currFore.empty();
       // create content based on city search
       var city = $("<h2>")
@@ -62,7 +77,7 @@ $(document).ready(function() {
       URL:
         "https://api.openweathermap.org/data/2.5/forecast?q=" +
         citySearch +
-        "&appid=b6907d289e10d714a6e88b30761fae22"
+        "&units=imperial&appid=b6907d289e10d714a6e88b30761fae22"
     }).then(function(response) {
       console.log(response);
     });
