@@ -28,18 +28,18 @@ $(document).ready(function() {
       currFore.empty();
       // create content based on city search
       var city = $("<h2>")
-        .addClass("card-title")
-        .text(response.name + " (" + new Date().toLocaleDateString() + ")");
+        .text(response.name + " (" + new Date().toLocaleDateString() + ")")
+        .addClass("card-title");
       var content = $("<div>").addClass("card");
       var temp = $("<div>")
-        .addClass("card-text")
-        .text("Temperature: " + response.main.temp + " F");
+        .text("Temperature: " + response.main.temp + " F")
+        .addClass("card-text");
       var humidity = $("<div>")
-        .addClass("card-text")
-        .text("Humidity: " + response.main.humidity + "%");
+        .text("Humidity: " + response.main.humidity + "%")
+        .addClass("card-text");
       var windSpd = $("<div>")
-        .addClass("card-text")
-        .text("Wind Speed: " + response.wind.speed + " MPH");
+        .text("Wind Speed: " + response.wind.speed + " MPH")
+        .addClass("card-text");
       var container = $("<div>").addClass("card-body");
       var img = $("<img>").attr(
         "src",
@@ -50,6 +50,20 @@ $(document).ready(function() {
       container.append(city, temp, humidity, windSpd);
       content.append(container);
       currFore.append(container);
+
+      getFiveDay(citySearch);
+    });
+  }
+
+  function getFiveDay(citySearch) {
+    $.ajax({
+      type: "GET",
+      URL:
+        "https://openweathermap.org/data/2.5/weather?q=" +
+        citySearch +
+        "&appid=b6907d289e10d714a6e88b30761fae22"
+    }).then(function(response) {
+      console.log(response);
     });
   }
 
