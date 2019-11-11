@@ -1,19 +1,23 @@
 $(document).ready(function() {
   // database
-  var city = $("#searchBox").val();
-  // raw weather object from API
-  var cityWeather =
-    "https://openweathermap.org/data/2.5/weather?q=" +
-    city +
-    "&appid=b6907d289e10d714a6e88b30761fae22";
+  $("#searchBtn").on("click", function() {
+    var city = $("#searchBox").val();
+    $("#searchBox").val("");
+    var cityWeather =
+      "https://openweathermap.org/data/2.5/weather?q=" +
+      city +
+      "&appid=b6907d289e10d714a6e88b30761fae22";
 
-  // variables
-  // parsed weather data
-  $.ajax({
-    url: cityWeather,
-    method: "GET"
-  }).then(function(response) {
-    console.log(response);
+    // raw weather object from API
+
+    // variables
+    // parsed weather data
+    $.ajax({
+      url: cityWeather,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+    });
   });
   // ------
 
@@ -31,10 +35,4 @@ $(document).ready(function() {
   // init
 
   // check local storage for city history
-  $.ajax({
-    url: cityWeather,
-    method: "GET"
-  }).then(function(response) {
-    console.log(response);
-  });
 });
