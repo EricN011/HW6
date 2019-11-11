@@ -1,8 +1,8 @@
 $(document).ready(function() {
   // database
+  var city = $("#searchBox").val();
   // raw weather object from API
-  const city = "London";
-  const cityWeather =
+  var cityWeather =
     "https://openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=b6907d289e10d714a6e88b30761fae22";
