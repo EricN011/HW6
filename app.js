@@ -2,11 +2,11 @@ $(document).ready(function() {
   // database
   var city = $("#searchBox");
   var searchBtn = $("#searchBtn");
+  var currentForecast = $("#currentForecast");
+  var fiveDay = $("#5DayForecast");
+  var history = $("#searchHistory");
   // raw weather object from API
-  var cityWeather =
-    "https://openweathermap.org/data/2.5/weather?q=" +
-    city +
-    "&appid=b6907d289e10d714a6e88b30761fae22";
+
   // search button event
   searchBtn.on("click", function() {
     // enter city name
@@ -19,7 +19,10 @@ $(document).ready(function() {
   // get weather function
   function getWeather(city) {
     $.ajax({
-      url: cityWeather,
+      url:
+        "https://openweathermap.org/data/2.5/weather?q=" +
+        city +
+        "&appid=b6907d289e10d714a6e88b30761fae22",
       method: "GET"
     }).then(function(response) {
       console.log(response);
