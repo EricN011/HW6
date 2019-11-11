@@ -10,27 +10,33 @@
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Document</title>
+    <title>Weather Application</title>
   </head>
   <body>
     <!-- header -->
-    <h2>Weather Application</h2>
+    <header class="bg-dark container-fluid text-center text-white">
+      <h2>Weather Application</h2>
+    </header>
     <!-- search input box (event on mag glass) -->
-    <div id="searchBtn">
-      <form action="/action_page.php">
-        <input type="text" placeholder="Search.." name="search" />
-        <button type="submit">Search<i class="fa fa-search"></i></button>
-      </form>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="bg-light col-lg-4">
+          <h2 class="mt-2">Enter City</h2>
+          <div class="form-inline form-group">
+            <input class="form-control" type="text" id="searchBox" />
+            <button class="btn btn-primary" id="searchBtn">
+              Search
+            </button>
+          </div>
+          <ul class="list-group history"></ul>
+        </div>
+      </div>
     </div>
     <!-- list of previous searches (event on history click) -->
     <!-- current city weather stats -->
-    <div id="weatherDiv">
-      <div>Temperature</div>
-      <div>Humidity</div>
-      <div>Wind Speed</div>
-      <div>UV Index</div>
-    </div>
     <!-- 5 day weather outlook -->
     <script src="app.js"></script>
   </body>
