@@ -1,25 +1,30 @@
 $(document).ready(function() {
   // database
-  $("#searchBtn").on("click", function() {
-    var city = $("#searchBox").val();
+  var city = $("#searchBox");
+  var searchBtn = $("#searchBtn");
+  // raw weather object from API
+  var cityWeather =
+    "https://openweathermap.org/data/2.5/weather?q=" +
+    city +
+    "&appid=b6907d289e10d714a6e88b30761fae22";
+  // search button event
+  searchBtn.on("click", function() {
+    // enter city name
+    city = $("#searchBox").val();
     $("#searchBox").val("");
-    var cityWeather =
-      "https://openweathermap.org/data/2.5/weather?q=" +
-      city +
-      "&appid=b6907d289e10d714a6e88b30761fae22";
 
-    // raw weather object from API
+    getWeather(city);
+  });
 
-    // variables
-    // parsed weather data
+  // get weather function
+  function getWeather(city) {
     $.ajax({
       url: cityWeather,
       method: "GET"
     }).then(function(response) {
       console.log(response);
     });
-  });
-  // ------
+  }
 
   // utility functions
   // get raw data
