@@ -15,14 +15,15 @@ $(document).ready(function() {
 
     getWeather(citySearch);
   });
+  // on click event using the history function
   history.on("click", "li", function() {
     getWeather($(this).text());
   });
-
+  // creates a new div to display the history
   function newDiv(text) {
     var cityList = $("<ul>")
-      .addClass("list-group-item list-group-item-action")
-      .text(text);
+      .text(text)
+      .addClass("list-group-item list-group-item-action");
     history.append(cityList);
   }
 
@@ -69,6 +70,12 @@ $(document).ready(function() {
       getFiveDay(citySearch);
     });
   }
+  // check local storage for city history
+  var localHistory = JSON.parse(window.localStorage.getItem("history")) || [];
+
+  if (localHistory.length > 0) {
+    getWeather(localHistory[localHistory.length - 1]);
+  }
 
   // Five day forecast function
   function getFiveDay(citySearch) {
@@ -95,6 +102,4 @@ $(document).ready(function() {
   // set weather info to the object return (see raw data)
 
   // init
-
-  // check local storage for city history
 });
