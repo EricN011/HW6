@@ -4,7 +4,6 @@ $(document).ready(function() {
   var citySearch = $("#searchBox");
   var searchBtn = $("#searchBtn");
   var currFore = $("#currentForecast");
-  var fiveDay = $("#5DayForecast");
   var history = $("#searchHistory");
 
   // search button event
