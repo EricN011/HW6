@@ -30,7 +30,7 @@ $(document).ready(function() {
   function getWeather(citySearch) {
     $.ajax({
       url:
-        "https://openweathermap.org/data/2.5/weather?q=" +
+        "//openweathermap.org/data/2.5/weather?q=" +
         citySearch +
         "&units=imperial&appid=b6907d289e10d714a6e88b30761fae22",
       method: "GET"
